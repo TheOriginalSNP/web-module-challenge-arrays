@@ -45,8 +45,9 @@ Use the copy function below to do the following:
     2. Return a copy of the received array  
 */
 
-function copy(/*your code here*/){
-    /*your code here*/
+function copy(){
+   let copyFlavors = [...originalFlavors]
+   return copyFlavors
 }    
 
 
@@ -64,8 +65,12 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
-   /*your code here*/
+function is31Flavors(copyFlavors){
+   if (copyFlavors.length === 31) {
+    return true
+   } else {
+       return false
+   }
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -81,8 +86,11 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(/*your code here*/){
-   /*your code here*/
+function addFlavor(copyFlavors){
+//    copyFlavors.push('Rainbow Sherbert');
+   copyFlavors.unshift('Rainbow Sherbert');
+   return copyFlavors
+
 }
 
 
@@ -97,8 +105,9 @@ Use the removeLastFlavor function below to do the following:
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
-   /*your code here*/
+function removeLastFlavor(copyFlavors){
+    copyFlavors.pop();
+    return copyFlavors
 }
 
 
@@ -113,8 +122,8 @@ Use the getFlavorByIndex function below to do the following:
     For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/){
-    /*your code here*/
+function getFlavorByIndex(copyFlavors){
+    return copyFlavors[2]
 }
 
 
@@ -132,9 +141,14 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-    /*your code here*/
+function removeFlavorByName(copyFlavors, item){
+
+    const itemToRemove = copyFlavors.indexOf(item)
+    copyFlavors.splice(itemToRemove, 1);
+    return copyFlavors
 }
+
+
 
 
 
@@ -157,8 +171,25 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-    /*your code here*/
+
+function filterByWord(copyFlavors, filterWord){
+    // step 1: create new array
+    // step 2: iterate 1 by 1 the list of flavors
+    // step 3: check if theres chocolate in it, if so add it to the new array, if not then keep reading
+    // step 4: return new array
+
+    let filterFlavors = []
+
+    //   Start, sets the boundaries(when does it stop) , increments
+    for (let i = 0; i < copyFlavors.length - 1; i++){
+
+        // 
+        const currentFlavor = copyFlavors[i]// <-- this is indexing by the number of the for loop
+        if (currentFlavor.includes(filterWord)) {
+            filterFlavors.push(currentFlavor)
+        } 
+    }
+    return filterFlavors   
 }
 
 
@@ -174,8 +205,8 @@ Use the getAverageWordLength function below to do the following:
     For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
-    /*code here*/
+function getAverageWordLength(copyFlavors){
+    let wordCount = copyFlavors.split(' ').length;
 }
 
 
